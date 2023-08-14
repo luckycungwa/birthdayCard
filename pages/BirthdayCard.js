@@ -22,7 +22,7 @@ const BirthdayCard = () => {
     require("../assets/07.jpg"),
   ];
   const [greeting, setGreeting] = useState(
-    "Even if you can’t escape growing old, that doesn’t mean you have to act your age! Live it up while you can, friend! Happy birthday."
+    "Dear, Jane & John Doe Twins, Even if you can’t escape growing old, that doesn’t mean you have to act your age! Live it up while you can, friends! Happy birthday."
   ); //customized message
   const [activeBG, setActiveBG] = useState(backgroundImages[0]); //initialize images
   const [ageValue, setAgeValue] = useState(""); //states for age values
@@ -36,13 +36,14 @@ const BirthdayCard = () => {
   //   Handl the birthday message
   const handleInputChange = (text) => {
     setGreeting(text);
+   
   };
   //   handle the age input (integer)
   const handleAgeInput = (age) => {
     // Validate the input to ensure it's a number and within the desired range
-    const numericValue = parseInt(age);
+    const numValue = parseInt(age);
     // no one is older than 200 lol | cap and <=0 && <=200 (numbers only resttriction)
-    if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 200) {
+    if (!isNaN(numValue) && numValue >= 0 && numValue <= 200) {
       setAgeValue(age);
     }
   };
@@ -56,6 +57,7 @@ const BirthdayCard = () => {
           placeholder="Type in a birthday message..."
           onChangeText={handleInputChange}
           value={greeting}
+          maxLength={200} //limitt to 200charcters to avoid ovelapping.
         />
         {/* <Button title="Clear" onPress={() => setGreeting("")} /> */}
 
@@ -63,7 +65,7 @@ const BirthdayCard = () => {
           onPress={() => setGreeting("")}
           style={styles.clearBtn}
         >
-          <Text style={styles.ctaText}>x</Text>
+          <Text style={styles.clearBtn}>clear</Text>
         </TouchableOpacity>
         {/* <Button title="Randomize Image" onPress={randomizeImage} /> */}
       </View>
@@ -105,14 +107,14 @@ const BirthdayCard = () => {
           <Image
             style={styles.saveIcon}
             source={{
-              uri: "#",
+              uri: "https://thenounproject.com/api/private/icons/1044722/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
             }}
           />
         </View>
       </View>
       <View style={styles.actionContainer}>
         <TouchableOpacity style={styles.ctaBtnrBtn} onPress={randomizeImage}>
-          <Text style={styles.cardText }>Randomize Image</Text>
+          <Text style={styles.cardText}>Randomize Image</Text>
         </TouchableOpacity>
       </View>
 
@@ -123,7 +125,7 @@ const BirthdayCard = () => {
           Change Background image: Click 'Randomize Image'
         </Text>
         <Text style={styles.userTips}>
-          Download Birthday Card: Click Download Icon
+          Download or Share Birthday Card: Click share Icon
         </Text>
       </View>
     </View>
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
   input: {
     width: "auto",
     height: 40,
-    borderColor: "gray",
+    borderColor: "#363636",
     borderWidth: 1,
     paddingHorizontal: 10,
     marginBottom: 20,
@@ -215,17 +217,17 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   clearBtn: {
-    // backgroundColor: "#f2f2f2",
-    // alignItems: "center",
+    fontSize: 14,
+    letterSpacing: 0.8,
+    alignContent: "center",
+    textAlign: "center",
     justifyContent: "center",
     height: 40,
     height: 40,
-    // backgroundColor: "#ffb380",
+    backgroundColor: "#ffb380",
     borderRadius: 50,
-    padding: 16,
-    right: 0,
+    padding: 8,
     marginLeft: 0,
-    fontWeight: "bold",
   },
   ctaBtn: {
     backgroundColor: "#ff9b21",
@@ -259,6 +261,7 @@ const styles = StyleSheet.create({
     marginBotton: 24,
     backgroundColor: "#fffa714",
   },
+  // Not active because might have to change dynamically (2nd, 5th, 3rd)
   supText: {
     fontSize: 16,
     fontWeight: "bold",
@@ -267,15 +270,17 @@ const styles = StyleSheet.create({
     right: -6,
   },
   iconContainer: {
-    height: 30,
-    height: 30,
+    height: 32,
+    width: 32,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#ff7125",
+    backgroundColor: "#ffffff",
     position: "absolute",
+    borderWidth: 2,
+    borderColor: "#1e1e1e",
     bottom: 12,
     right: 12,
-    borderRadius: 50,
+    borderRadius: 100,
   },
   saveIcon: {
     width: 30,
@@ -293,7 +298,7 @@ const styles = StyleSheet.create({
   },
   tipContainer: {
     marginTop: 24,
-  }
+  },
 });
 
 export default BirthdayCard;
