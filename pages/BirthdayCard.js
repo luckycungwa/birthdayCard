@@ -65,7 +65,7 @@ const BirthdayCard = () => {
           onPress={() => setGreeting("")}
           style={styles.clearBtn}
         >
-          <Text style={styles.clearBtn}>clear</Text>
+          <Text style={styles.clearBtn}>Clear</Text>
         </TouchableOpacity>
         {/* <Button title="Randomize Image" onPress={randomizeImage} /> */}
       </View>
@@ -107,8 +107,8 @@ const BirthdayCard = () => {
           <Image
             style={styles.saveIcon}
             source={{
-              uri: "https://thenounproject.com/api/private/icons/1044722/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
-            }}
+              uri: "https://thenounproject.com/api/private/icons/1058861/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+              }}
           />
         </View>
       </View>
@@ -147,12 +147,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    width: "auto",
+    width: 270,
     height: 40,
     borderColor: "#363636",
     borderWidth: 1,
     paddingHorizontal: 10,
     marginBottom: 20,
+    marginRight: 16,
   },
   cardText: {
     fontSize: 18,
